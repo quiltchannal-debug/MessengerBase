@@ -1,0 +1,68 @@
+== OrangeM UI harness ==
+PASS окно создано
+INFO клиентская область 1264x761
+INFO раздел Чаты    цветов   380, оранжевых   273
+PASS отрисован раздел Чаты
+PASS акцент в разделе Чаты
+INFO раздел Лента  цветов   253, оранжевых   447
+PASS отрисован раздел Лента
+PASS акцент в разделе Лента
+INFO раздел Сообщества цветов   231, оранжевых   650
+PASS отрисован раздел Сообщества
+PASS акцент в разделе Сообщества
+INFO раздел Истории цветов   241, оранжевых   563
+PASS отрисован раздел Истории
+PASS акцент в разделе Истории
+INFO раздел Настройки цветов   276, оранжевых   402
+PASS отрисован раздел Настройки
+PASS акцент в разделе Настройки
+PASS клик по пункту «Лента»
+PASS клик по пункту «Чаты»
+PASS клик по пункту «Сообщества»
+PASS клик по пункту «Истории»
+PASS клик по пункту «Настройки»
+PASS клик по строке чата
+PASS поле ввода сообщения создано
+PASS кнопка «отправить» → onSendMessage
+PASS поле ввода очищено после отправки
+PASS Enter в поле ввода → onSendMessage
+PASS ui::messageInputText/setMessageInputText
+PASS focusMessageInput без падения
+PASS кнопка «вложение» → onAttach
+PASS кнопка «обновить» → onRefresh
+PASS hits: реестр попаданий не пуст
+PASS кнопка «Выйти» → onLogout
+PASS кнопка «Обновить» в профиле
+PASS поле адреса сервера создано
+PASS Enter в адресе сервера → onServerChanged
+PASS ui::setStatus
+PASS композер создан
+PASS кнопка «Опубликовать» → onCreatePost
+PASS кнопка «сердце» → onLikePost
+PASS кнопка «комментарий» открывает модальное окно
+PASS модальное окно → onCommentPost и закрытие
+PASS кнопка «ссылка» копирует ссылку
+PASS ui::showToast не падает
+PASS поле поиска создано
+PASS Enter в поиске → onSearch
+PASS крестик поиска → onSearchCleared
+PASS Esc в поиске очищает
+PASS кнопка «Вступить/Покинуть» → onToggleCommunity
+PASS кнопка «Открыть чат» → onOpenCommunityChat
+PASS клик по карточке сообщества → onToggleCommunity
+PASS клик по карточке истории → onViewStory
+PASS кнопка «История» → onCreateStory
+PASS Ctrl+1 → раздел
+PASS Ctrl+2 → раздел
+PASS Ctrl+3 → раздел
+PASS Ctrl+4 → раздел
+PASS Ctrl+5 → раздел
+PASS Ctrl+2 из поля ввода → раздел
+PASS EDIT возвращает DLGC_WANTALLKEYS
+PASS F5 → onRefresh
+PASS колесо мыши прокручивает ленту
+PASS колесо мыши прокручивает сообщения
+PASS перерисовка после WM_SIZE
+PASS пустое состояние: все разделы отрисованы без падения
+
+== UI HARNESS: PASS=59 FAIL=0 ==
