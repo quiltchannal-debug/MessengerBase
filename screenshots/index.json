@@ -1,0 +1,78 @@
+[
+  {
+    "name": "web-01-login",
+    "size": 45011
+  },
+  {
+    "name": "web-02-login-flash",
+    "size": 49326
+  },
+  {
+    "name": "web-03-login-totp",
+    "size": 46857
+  },
+  {
+    "name": "web-04-register",
+    "size": 50304
+  },
+  {
+    "name": "web-05-feed",
+    "size": 115703
+  },
+  {
+    "name": "web-06-feed-composer",
+    "size": 106898
+  },
+  {
+    "name": "web-07-chats",
+    "size": 89893
+  },
+  {
+    "name": "web-08-communities",
+    "size": 75048
+  },
+  {
+    "name": "web-09-community-detail",
+    "size": 91554
+  },
+  {
+    "name": "web-10-story-viewer",
+    "size": 73936
+  },
+  {
+    "name": "web-11-stories",
+    "size": 48694
+  },
+  {
+    "name": "web-12-profile",
+    "size": 94991
+  },
+  {
+    "name": "web-13-settings-profile",
+    "size": 79735
+  },
+  {
+    "name": "web-13-settings-privacy",
+    "size": 66573
+  },
+  {
+    "name": "web-13-settings-security",
+    "size": 67158
+  },
+  {
+    "name": "web-14-settings-2fa-qr",
+    "size": 79107
+  },
+  {
+    "name": "web-13-settings-appearance",
+    "size": 63704
+  },
+  {
+    "name": "web-13-settings-sessions",
+    "size": 92202
+  },
+  {
+    "name": "web-15-mobile-feed",
+    "size": 194376
+  }
+]

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>OrangeM — мессенджер</title>
+<meta name="theme-color" content="#0c0f13">
+<link rel="icon" href="/assets/logo.jpg">
+<link rel="apple-touch-icon" href="/assets/logo.jpg">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div id="toast-root"></div>
+<div id="modal-root"></div>
+<div id="boot" class="boot">
+  <img src="/assets/logo.jpg" alt="OrangeM" class="boot-logo">
+  <div class="boot-title">Orange<span>M</span></div>
+  <div class="boot-sub">соединение…</div>
+</div>
+
+<!-- ============ AUTH ============ -->
+<section id="view-auth" class="view auth-view hidden">
+  <div class="auth-art">
+    <img src="/assets/logo.jpg" class="auth-logo" alt="OrangeM">
+    <h1>Orange<span>M</span></h1>
+    <p class="auth-tag">Один Orange ID — все продукты. Лента, чаты, истории и сообщества в одном месте.</p>
+    <ul class="auth-points">
+      <li>Вход по почте, телефону, флеш-ключу или коду из аутентификатора</li>
+      <li>Истории, лента и сообщества</li>
+      <li>Сквозной Orange ID для всех сервисов</li>
+    </ul>
+  </div>
+  <div class="auth-panel">
+    <div class="auth-tabs">
+      <button class="auth-tab active" data-authtab="login">Вход</button>
+      <button class="auth-tab" data-authtab="register">Регистрация</button>
+    </div>
+    <div id="auth-body" class="auth-body"></div>
+  </div>
+</section>
+
+<!-- ============ APP ============ -->
+<div id="app" class="app hidden">
+  <aside class="sidebar">
+    <div class="side-brand">
+      <img src="/assets/logo.jpg" alt="" class="side-logo">
+      <div class="side-name">Orange<span>M</span></div>
+    </div>
+    <nav class="side-nav">
+      <button class="nav-btn active" data-view="feed"><span class="nav-ico"><svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.6 12 3l9 7.6"/><path d="M5.5 9.4V21h13V9.4"/><path d="M9.8 21v-6.2h4.4V21"/></svg></span>Лента</button>
+      <button class="nav-btn" data-view="chats"><span class="nav-ico"><svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.6c0 4.2-4 7.6-9 7.6-1 0-2-.14-2.9-.4L4 21l1.3-3.6C4.1 16.2 3 14 3 11.6 3 7.4 7 4 12 4s9 3.4 9 7.6z"/></svg></span>Чаты<span class="nav-badge" id="nav-badge-chats"></span></button>
+      <button class="nav-btn" data-view="communities"><span class="nav-ico"><svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16.5 20v-1.6a3.9 3.9 0 0 0-3.9-3.9H7.4a3.9 3.9 0 0 0-3.9 3.9V20"/><circle cx="10" cy="7.6" r="3.6"/><path d="M20.5 20v-1.6a3.9 3.9 0 0 0-2.9-3.8"/><path d="M15.5 4.2a3.6 3.6 0 0 1 0 7"/></svg></span>Сообщества</button>
+      <button class="nav-btn" data-view="stories"><span class="nav-ico"><svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.2"/></svg></span>Истории</button>
+      <button class="nav-btn" data-view="settings"><span class="nav-ico"><svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1A1.7 1.7 0 0 0 9 19.4a1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1A1.7 1.7 0 0 0 9 4.6h.1A1.7 1.7 0 0 0 10 3.1V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9v.1a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg></span>Настройки</button>
+    </nav>
+    <div class="side-foot">
+      <div id="side-me" class="side-me"></div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <!-- FEED -->
+    <section id="view-feed" class="view">
+      <header class="view-head">
+        <h2>Лента</h2>
+        <div class="section-search">
+          <input id="feed-search" type="search" placeholder="Поиск по хештегам и названиям публикаций…">
+          <button id="feed-search-btn" class="btn ghost">Найти</button>
+        </div>
+        <button id="post-new-btn" class="btn primary"><svg class="ico ico-sm" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>Публикация</button>
+      </header>
+      <div class="view-sub">Публикации сообществ и подписок, тренды по хештегам</div>
+      <div class="head-chips" id="feed-tabs">
+        <button class="chip active" data-scope="global">Все</button>
+        <button class="chip" data-scope="following">Подписки</button>
+        <button class="chip" data-scope="mine">Мои</button>
+      </div>
+      <div id="stories-bar" class="stories-bar"></div>
+      <div id="feed-composer" class="composer hidden"></div>
+      <div id="feed-trends" class="trends"></div>
+      <div id="feed-list" class="feed-list"></div>
+      <button id="feed-more" class="btn ghost wide hidden">Показать ещё</button>
+    </section>
+
+    <!-- CHATS -->
+    <section id="view-chats" class="view hidden view-chats">
+      <div class="chat-list-col">
+        <header class="view-head small">
+          <h2>Чаты</h2>
+          <button id="chat-new-btn" class="btn primary small">+ Чат</button>
+        </header>
+        <div class="view-sub">Личные и групповые диалоги</div>
+        <div class="section-search">
+          <input id="chat-search" type="search" placeholder="Поиск: ID, юзернейм, почта, Orange ID…">
+        </div>
+        <div id="chat-list" class="chat-list"></div>
+      </div>
+      <div class="chat-panel" id="chat-panel">
+        <div class="empty-state" id="chat-empty">
+          <img src="/assets/logo.jpg" alt="" class="empty-logo">
+          <p>Выберите чат или создайте новый. Поиск работает по ID чата, юзернейму, почте и Orange ID.</p>
+        </div>
+        <div id="chat-body" class="chat-body hidden">
+          <header class="chat-head" id="chat-head"></header>
+          <div class="chat-messages" id="chat-messages"></div>
+          <div class="chat-typing" id="chat-typing"></div>
+          <div class="chat-input-row">
+            <button class="btn ghost icon" id="chat-attach" title="Вложение"><svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.4 11.6 12 20a5.2 5.2 0 0 1-7.4-7.4l8.7-8.7a3.5 3.5 0 0 1 4.9 4.9l-8.7 8.7a1.7 1.7 0 0 1-2.5-2.5l8-8"/></svg></button>
+            <input id="chat-input" type="text" placeholder="Написать сообщение…" autocomplete="off">
+            <button class="btn primary icon" id="chat-send" title="Отправить"><svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21.5 2.5 2.8 10.2l7.2 2.9 2.9 7.2z"/><path d="M21.5 2.5 10 12.9"/></svg></button>
+          </div>
+          <input type="file" id="chat-file" class="hidden">
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMUNITIES -->
+    <section id="view-communities" class="view hidden">
+      <header class="view-head">
+        <h2>Сообщества</h2>
+        <div class="section-search">
+          <input id="community-search" type="search" placeholder="Поиск сообществ: название, ссылка, ID…">
+          <button id="community-search-btn" class="btn ghost">Найти</button>
+        </div>
+        <div class="head-actions">
+          <button id="community-join-code" class="btn ghost">Войти по коду</button>
+          <button id="community-new-btn" class="btn primary">+ Сообщество</button>
+        </div>
+      </header>
+      <div class="view-sub">Каналы и группы: публикации, участники, обсуждения</div>
+      <div class="head-chips" id="community-tabs">
+        <button class="chip active" data-scope="all">Все</button>
+        <button class="chip" data-scope="mine">Мои</button>
+      </div>
+      <div id="community-list" class="card-grid"></div>
+    </section>
+
+    <!-- COMMUNITY DETAIL -->
+    <section id="view-community" class="view hidden">
+      <div id="community-detail"></div>
+    </section>
+
+    <!-- STORIES -->
+    <section id="view-stories" class="view hidden">
+      <header class="view-head">
+        <h2>Истории</h2>
+        <button id="story-new-btn" class="btn primary">+ История</button>
+      </header>
+      <div class="view-sub">Истории подписок и ваши собственные, срок — 24 часа</div>
+      <div id="stories-full" class="stories-full"></div>
+    </section>
+
+    <!-- PROFILE -->
+    <section id="view-profile" class="view hidden">
+      <div id="profile-body"></div>
+    </section>
+
+    <!-- SETTINGS -->
+    <section id="view-settings" class="view hidden">
+      <header class="view-head"><h2>Настройки</h2></header>
+      <div class="view-sub">Профиль, доступ, безопасность и устройства</div>
+      <div class="settings-wrap">
+        <nav class="settings-nav" id="settings-nav">
+          <button class="chip active" data-tab="profile">Профиль</button>
+          <button class="chip" data-tab="privacy">Конфиденциальность</button>
+          <button class="chip" data-tab="security">Безопасность</button>
+          <button class="chip" data-tab="appearance">Внешний вид</button>
+          <button class="chip" data-tab="sessions">Устройства и флеш-ключи</button>
+          <button class="chip" data-tab="admin">Админ</button>
+        </nav>
+        <div id="settings-body" class="settings-body"></div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- STORY VIEWER -->
+<div id="story-viewer" class="story-viewer hidden">
+  <div class="story-progress" id="story-progress"></div>
+  <button class="story-close" id="story-close" title="Закрыть"><svg class="ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <button class="story-nav prev" id="story-prev">‹</button>
+  <button class="story-nav next" id="story-next">›</button>
+  <div class="story-stage" id="story-stage"></div>
+</div>
+
+<script src="/js/api.js"></script>
+<script src="/js/ui.js"></script>
+<script src="/js/qrcode.js"></script>
+<script src="/js/realtime.js"></script>
+<script src="/js/auth.js"></script>
+<script src="/js/feed.js"></script>
+<script src="/js/stories.js"></script>
+<script src="/js/chats.js"></script>
+<script src="/js/communities.js"></script>
+<script src="/js/profile.js"></script>
+<script src="/js/settings.js"></script>
+<script src="/js/app.js"></script>
+</body>
+</html>
